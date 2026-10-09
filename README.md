@@ -1,6 +1,6 @@
 <div align="center">
 
-# Olá, eu sou o Majozin! 👋
+# Olá, Majozin aqui! 👋
 
 ### Desenvolvimento de Sistemas • Automação • Infraestrutura
 
