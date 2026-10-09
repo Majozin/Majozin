@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Atualiza somente o bloco público de projetos privados do README."""
+from render_projects import render_projects
 import json
 import os
-import re
 import sys
 import urllib.error
 import urllib.parse
@@ -41,13 +41,6 @@ def pages(path):
             break
         page += 1
 
-def progress_bar(percent):
-    filled = round(percent / 10)
-    return "█" * filled + "░" * (10 - filled)
-
-def safe_name(value):
-    return value.replace("|", " ").replace("\n", " ").replace("\r", " ")
-
 def main():
     if not TOKEN:
         print("PROFILE_PROJECTS_TOKEN não configurado; README preservado.")
@@ -62,39 +55,34 @@ def main():
     )
     if not repos:
         raise RuntimeError("Nenhum repositório privado visível; abortando para evitar apagar o painel.")
-    lines = ["| Projeto | Progresso | Indicador |", "|:--|:--|:--|"]
+    records = []
     for repo in repos:
         name = repo["name"]
         override = OVERRIDES.get(name, {})
-        label = safe_name(override.get("public_name", name))
+        label = override.get("public_name", name)
         if override.get("hidden", False):
             continue
         if "percent" in override:
             percent = int(override["percent"])
             if not 0 <= percent <= 100:
                 raise ValueError("Percentual manual fora do intervalo: " + name)
-            status = "Manual"
+            status = "Progresso informado"
         elif repo.get("has_issues", True):
             try:
                 issues = [x for x in pages("/repos/" + OWNER + "/" + urllib.parse.quote(name) + "/issues?state=all") if "pull_request" not in x]
             except (urllib.error.HTTPError, urllib.error.URLError) as exc:
-                print("Falha ao obter issues de", name, "-", exc, file=sys.stderr)
-                issues = []
+                raise RuntimeError("Falha ao obter issues; painel preservado: " + name) from exc
             if issues:
                 percent = round(100 * sum(x.get("state") == "closed" for x in issues) / len(issues))
-                status = "Issues encerradas: " + str(sum(x.get("state") == "closed" for x in issues)) + "/" + str(len(issues))
+                status = "Issues concluídas: " + str(sum(x.get("state") == "closed" for x in issues)) + "/" + str(len(issues))
             else:
                 percent = None
                 status = "Não aferido"
         else:
             percent = None
             status = "Não aferido"
-        if percent is None:
-            bar = "░" * 10
-        else:
-            bar = progress_bar(percent)
-            status = str(percent) + "% · " + status
-        lines.append("| " + label + " | `" + bar + "` | " + status + " |")
+        records.append({"name": label, "percent": percent, "status": status})
+    records.sort(key=lambda item: (item["percent"] is None, -(item["percent"] or 0), item["name"].lower()))
     path = Path("README.md")
     content = path.read_text(encoding="utf-8")
     if content.count(START) != 1 or content.count(END) != 1:
@@ -103,10 +91,10 @@ def main():
     last = content.index(END)
     if first >= last:
         raise RuntimeError("Marcadores invertidos.")
-    new_content = content[:first] + "\n" + "\n".join(lines) + "\n" + content[last:]
+    new_content = content[:first] + "\n" + render_projects(records) + "\n" + content[last:]
     if new_content != content:
         path.write_text(new_content, encoding="utf-8")
-        print("Painel atualizado:", len(lines) - 2, "projetos.")
+        print("Painel atualizado:", len(records), "projetos.")
     else:
         print("Nenhuma alteração no painel.")
     return 0
