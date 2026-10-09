@@ -3,10 +3,6 @@
 </p>
 
 <p align="center">
-<img src="assets/avatar.png" width="140" alt="Retrato ilustrado de Majozin" />
-</p>
-
-<p align="center">
 <img src="assets/profile/about.svg" width="520" alt="Meu laboratório de ideias que saem do papel. Aqui reúno projetos que nascem de necessidades reais e da vontade de experimentar. Entre sistemas de gestão, integrações e infraestrutura self-hosted, aprendo construindo e aprimoro usando." />
 </p>
 
