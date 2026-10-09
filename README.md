@@ -54,19 +54,19 @@ Gosto de acompanhar todo o ciclo de um projeto: **planejamento, prototipação, 
 <!-- PRIVATE_PROJECTS_START -->
 | Projeto | Progresso | Indicador |
 |:--|:--|:--|
-| Padronizator-API | `░░░░░░░░░░` | Não aferido |
-| downloader_sefaz_pb | `░░░░░░░░░░` | Não aferido |
-| portfolio_template | `░░░░░░░░░░` | Não aferido |
-| Padronizator-vNext | `░░░░░░░░░░` | Não aferido |
-| RealmOps | `░░░░░░░░░░` | Não aferido |
-| MajoHub | `░░░░░░░░░░` | Não aferido |
-| conciliacao-v2 | `░░░░░░░░░░` | Não aferido |
 | Component-Library | `░░░░░░░░░░` | Não aferido |
+| conciliacao-v2 | `███████░░░` | 67% · Issues encerradas: 2/3 |
+| downloader_sefaz_pb | `░░░░░░░░░░` | Não aferido |
+| MajoHub | `░░░░░░░░░░` | Não aferido |
 | majoservers_status | `░░░░░░░░░░` | Não aferido |
-| UniSefazPB | `░░░░░░░░░░` | Não aferido |
-| primo-majo-dashboard | `░░░░░░░░░░` | Não aferido |
-| zimaos | `░░░░░░░░░░` | Não aferido |
+| Padronizator-API | `░░░░░░░░░░` | Não aferido |
+| Padronizator-vNext | `███████░░░` | 69% · Issues encerradas: 36/52 |
 | Playwitch | `░░░░░░░░░░` | Não aferido |
+| portfolio_template | `░░░░░░░░░░` | Não aferido |
+| primo-majo-dashboard | `░░░░░░░░░░` | Não aferido |
+| RealmOps | `░░░░░░░░░░` | Não aferido |
+| UniSefazPB | `░░░░░░░░░░` | Não aferido |
+| zimaos | `░░░░░░░░░░` | Não aferido |
 <!-- PRIVATE_PROJECTS_END -->
 
 <sub>Quando houver issues estruturadas, o progresso automático representa questões encerradas ÷ total de questões. Isso é uma métrica de tarefas, não necessariamente de conclusão do produto. Os demais projetos permanecem sem estimativa até receberem acompanhamento manual ou tarefas mensuráveis.</sub>
