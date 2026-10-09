@@ -94,7 +94,7 @@ def main():
         else:
             bar = progress_bar(percent)
             status = str(percent) + "% · " + status
-        lines.append("| " + label + " | \`" + bar + "\` | " + status + " |")
+        lines.append("| " + label + " | `" + bar + "` | " + status + " |")
     path = Path("README.md")
     content = path.read_text(encoding="utf-8")
     if content.count(START) != 1 or content.count(END) != 1:
