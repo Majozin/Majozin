@@ -1,10 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="840" height="200" viewBox="0 0 840 200" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="180" viewBox="0 0 840 180" role="img" aria-labelledby="title desc">
 <title id="title">Majozin</title><desc id="desc">Desenvolvimento, automação e infraestrutura</desc>
-<rect width="840" height="200" rx="20" fill="#EAF2FA"/>
-<path d="M620 0v200M660 0v200M700 0v200M740 0v200M780 0v200M820 0v200M600 40h240M600 80h240M600 120h240M600 160h240" stroke="#DBE7F2"/>
-<path d="M610 140V60l60 60 60-60v80" fill="none" stroke="#A1BCD5" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="610" cy="140" r="7" fill="#547FA5"/><circle cx="730" cy="140" r="7" fill="#547FA5"/>
-<text x="36" y="46" font-family="Arial, sans-serif" font-size="12" letter-spacing="3" fill="#526C82">ALCIDES JUNIOR / MAJOZIN</text>
-<text x="32" y="116" font-family="Trebuchet MS, Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="-3" fill="#203C55">Majozin<tspan fill="#547FA5">.</tspan></text>
-<text x="36" y="158" font-family="Arial, sans-serif" font-size="17" fill="#526C82">Desenvolvimento · Automação · Infraestrutura</text>
+<rect width="840" height="180" rx="20" fill="#EAF2FA"/>
+<g stroke="#DBE7F2"><path d="M40 0v180M80 0v180M120 0v180M160 0v180M680 0v180M720 0v180M760 0v180M800 0v180M0 40h180M0 80h180M0 120h180M0 160h180M660 40h180M660 80h180M660 120h180M660 160h180"/></g>
+<text x="420" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" letter-spacing="4" fill="#526C82">CONSTRUIR · CONECTAR · APRIMORAR</text>
+<text x="420" y="106" text-anchor="middle" font-family="Trebuchet MS, Arial, sans-serif" font-size="60" font-weight="700" letter-spacing="-2" fill="#203C55">Majozin<tspan fill="#547FA5">.</tspan></text>
+<text x="420" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#526C82">Desenvolvimento · Automação · Infraestrutura</text>
 </svg>
