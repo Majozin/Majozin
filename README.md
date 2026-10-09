@@ -46,6 +46,31 @@ Gosto de acompanhar todo o ciclo de um projeto: **planejamento, prototipação, 
 ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=figma&logoColor=white)
 ![Penpot](https://img.shields.io/badge/Penpot-000000?style=flat-square&logo=penpot&logoColor=white)
 
+
+## 📌 Acompanhamento de projetos privados
+
+> Visão pública resumida: apenas nomes e indicadores agregados. Nenhum código, issue ou dado interno é publicado. A barra **não aferida** não significa 0% concluído.
+
+<!-- PRIVATE_PROJECTS_START -->
+| Projeto | Progresso | Indicador |
+|:--|:--|:--|
+| Padronizator-API | `░░░░░░░░░░` | Não aferido |
+| downloader_sefaz_pb | `░░░░░░░░░░` | Não aferido |
+| portfolio_template | `░░░░░░░░░░` | Não aferido |
+| Padronizator-vNext | `░░░░░░░░░░` | Não aferido |
+| RealmOps | `░░░░░░░░░░` | Não aferido |
+| MajoHub | `░░░░░░░░░░` | Não aferido |
+| conciliacao-v2 | `░░░░░░░░░░` | Não aferido |
+| Component-Library | `░░░░░░░░░░` | Não aferido |
+| majoservers_status | `░░░░░░░░░░` | Não aferido |
+| UniSefazPB | `░░░░░░░░░░` | Não aferido |
+| primo-majo-dashboard | `░░░░░░░░░░` | Não aferido |
+| zimaos | `░░░░░░░░░░` | Não aferido |
+| Playwitch | `░░░░░░░░░░` | Não aferido |
+<!-- PRIVATE_PROJECTS_END -->
+
+<sub>Quando houver issues estruturadas, o progresso automático representa questões encerradas ÷ total de questões. Isso é uma métrica de tarefas, não necessariamente de conclusão do produto. Os demais projetos permanecem sem estimativa até receberem acompanhamento manual ou tarefas mensuráveis.</sub>
+
 ## 📊 Atividade no GitHub
 
 <div align="center">
