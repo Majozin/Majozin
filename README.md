@@ -1,8 +1,8 @@
 <img src="assets/header.svg" width="100%" alt="Majozin — Desenvolvimento, automação e infraestrutura" />
 
-### Ideias que viram sistemas. Sistemas que evoluem.
+### Meu laboratório de ideias que saem do papel.
 
-Sou Alcides Junior, **Majozin** por aqui. Desenvolvo soluções próprias com foco em sistemas de gestão, automação e infraestrutura self-hosted. Gosto de conectar planejamento, interfaces e operação — do primeiro esboço à manutenção.
+Aqui reúno projetos que nascem de necessidades reais e da vontade de experimentar. Entre sistemas de gestão, integrações e infraestrutura self-hosted, aprendo construindo e aprimoro usando.
 
 [Projetos](#projetos) · [Tecnologias](#tecnologias) · [Repositórios públicos](https://github.com/Majozin?tab=repositories)
 
