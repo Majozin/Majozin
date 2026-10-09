@@ -1,14 +1,14 @@
 <p align="center">
-  <img src="assets/header.svg" width="840" alt="Majozin — Desenvolvimento, automação e infraestrutura" />
+<img src="assets/header.svg" width="780" alt="Majozin — Desenvolvimento, automação e infraestrutura" />
 </p>
 
 <p align="center">
-  <img src="assets/avatar.png" width="150" height="150" alt="Retrato ilustrado de Majozin" />
+<img src="assets/avatar.png" width="140" alt="Retrato ilustrado de Majozin" />
 </p>
 
-<h3 align="center">Meu laboratório de ideias que saem do papel.</h3>
-
-<p align="center">Aqui reúno projetos que nascem de necessidades reais e da vontade de experimentar. Entre sistemas de gestão, integrações e infraestrutura self-hosted, aprendo construindo e aprimoro usando.</p>
+<p align="center">
+<img src="assets/profile/about.svg" width="520" alt="Meu laboratório de ideias que saem do papel. Aqui reúno projetos que nascem de necessidades reais e da vontade de experimentar. Entre sistemas de gestão, integrações e infraestrutura self-hosted, aprendo construindo e aprimoro usando." />
+</p>
 
 <p align="center">
   <a href="#projetos">Projetos</a> · <a href="#tecnologias">Tecnologias</a> · <a href="https://github.com/Majozin?tab=repositories">Repositórios públicos</a>
@@ -24,26 +24,21 @@
 
 <h4 align="center">Outros projetos · sem estimativa</h4>
 
-<p align="center"><code>Component-Library</code> · <code>downloader_sefaz_pb</code> · <code>MajoHub</code> · <code>majoservers_status</code> · <code>Padronizator-API</code> · <code>Playwitch</code> · <code>portfolio_template</code> · <code>primo-majo-dashboard</code> · <code>RealmOps</code> · <code>UniSefazPB</code> · <code>zimaos</code></p>
+<p align="center">
+<img src="assets/projects/catalog-1.svg" width="250" alt="Sem estimativa: Component-Library, downloader_sefaz_pb, MajoHub, majoservers_status" />
+<img src="assets/projects/catalog-2.svg" width="250" alt="Sem estimativa: Padronizator-API, Playwitch, portfolio_template, primo-majo-dashboard" />
+<img src="assets/projects/catalog-3.svg" width="250" alt="Sem estimativa: RealmOps, UniSefazPB, zimaos" />
+</p>
 <!-- PRIVATE_PROJECTS_END -->
 
 <h2 align="center">Tecnologias</h2>
 
 <p align="center">
-  <strong>Desenvolvimento &amp; dados</strong><br />
-  Python · JavaScript · React · PostgreSQL
+<img src="assets/profile/development.svg" width="250" alt="Desenvolvimento e dados: Python, JavaScript, React, PostgreSQL" />
+<img src="assets/profile/infrastructure.svg" width="250" alt="Infraestrutura e automação: Docker, Linux, Git, GitHub Actions, Cloudflare" />
+<img src="assets/profile/design.svg" width="250" alt="Design e experiência: Figma, Penpot, prototipação, UX" />
 </p>
 
 <p align="center">
-  <strong>Infraestrutura &amp; automação</strong><br />
-  Docker · Linux · Git · GitHub Actions · Cloudflare
+<img src="assets/profile/footer.svg" width="780" alt="Planejar com clareza. Construir com propósito. Aprimorar sempre." />
 </p>
-
-<p align="center">
-  <strong>Design &amp; prototipação</strong><br />
-  Figma · Penpot · Interfaces &amp; experiência do usuário
-</p>
-
-<hr />
-
-<p align="center"><sub>Planejar com clareza. Construir com propósito. Aprimorar sempre.</sub></p>

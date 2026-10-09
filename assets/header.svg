@@ -1,8 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="840" height="180" viewBox="0 0 840 180" role="img" aria-labelledby="title desc">
-<title id="title">Majozin</title><desc id="desc">Desenvolvimento, automação e infraestrutura</desc>
-<rect width="840" height="180" rx="20" fill="#EAF2FA"/>
-<g stroke="#DBE7F2"><path d="M40 0v180M80 0v180M120 0v180M160 0v180M680 0v180M720 0v180M760 0v180M800 0v180M0 40h180M0 80h180M0 120h180M0 160h180M660 40h180M660 80h180M660 120h180M660 160h180"/></g>
-<text x="420" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" letter-spacing="4" fill="#526C82">CONSTRUIR · CONECTAR · APRIMORAR</text>
-<text x="420" y="106" text-anchor="middle" font-family="Trebuchet MS, Arial, sans-serif" font-size="60" font-weight="700" letter-spacing="-2" fill="#203C55">Majozin<tspan fill="#547FA5">.</tspan></text>
-<text x="420" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#526C82">Desenvolvimento · Automação · Infraestrutura</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="190" viewBox="0 0 780 190" role="img" aria-labelledby="title">
+<title id="title">Majozin — Desenvolvimento, automação e infraestrutura</title>
+<path d="M13 1H755L779 25V177L767 189H25L1 165V13Z" fill="#090D18" stroke="#2A3D56"/>
+<path d="M14 1H72M779 125V176L766 189H725" fill="none" stroke="#59F3F2" stroke-width="2"/>
+<path d="M738 11h14m-10 5h14" stroke="#59F3F2" opacity="0.65"/>
+<defs><pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse"><path d="M26 0H0V26" fill="none" stroke="#23324A" stroke-width="0.6"/></pattern></defs><rect x="24" y="24" width="732" height="142" fill="url(#grid)" opacity="0.55"/><path d="M22 110h85l25-25h54M758 110h-85l-25-25h-54" fill="none" stroke="#2A3D56"/><text x="390" y="38" text-anchor="middle" fill="#59F3F2" font-family="DejaVu Sans Mono, monospace" font-size="10" font-weight="400" letter-spacing="2">CONSTRUIR / CONECTAR / APRIMORAR</text><text x="393" y="108" text-anchor="middle" fill="#FC77C8" font-family="DejaVu Sans Mono, monospace" font-size="60" font-weight="700" letter-spacing="7">MAJOZIN</text><text x="390" y="105" text-anchor="middle" fill="#EAF4FF" font-family="DejaVu Sans Mono, monospace" font-size="60" font-weight="700" letter-spacing="7">MAJOZIN</text><text x="390" y="146" text-anchor="middle" fill="#A9BCD3" font-family="DejaVu Sans Mono, monospace" font-size="12" font-weight="400">DESENVOLVIMENTO · AUTOMAÇÃO · INFRAESTRUTURA</text>
 </svg>

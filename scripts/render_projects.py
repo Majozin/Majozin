@@ -1,48 +1,49 @@
-"""Renderização pública: somente nomes e indicadores agregados."""
-from html import escape
+"""Publica somente nomes e métricas agregadas em cartões locais."""
 from pathlib import Path
 import hashlib
+from profile_theme import card, text, row, img, CYAN, PINK, MUTED, SURFACE
 
 
 def render_projects(records):
-    output = Path("assets/projects")
-    output.mkdir(parents=True, exist_ok=True)
-    lines = ['<p align="center">']
-    card_count = 0
-    unmeasured = []
-    used = set()
+    output=Path('assets/projects')
+    output.mkdir(parents=True,exist_ok=True)
+    cards=[]
+    unmeasured=[]
+    used=set()
     for item in records:
-        name, percent, status = item["name"], item["percent"], item["status"]
+        name,percent,status=item['name'],item['percent'],item['status']
         if percent is None:
             unmeasured.append(name)
             continue
         if not 0 <= percent <= 100:
-            raise ValueError("Percentual fora do intervalo")
-        filename = "progress-" + hashlib.sha256(name.encode()).hexdigest()[:16] + ".svg"
+            raise ValueError('Percentual fora do intervalo')
+        filename='progress-'+hashlib.sha256(name.encode()).hexdigest()[:16]+'.svg'
         used.add(filename)
-        label = escape(name)
-        caption = escape(status)
-        font_size = min(16, 390 / max(len(name), 1))
-        svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="250" height="150" viewBox="0 0 250 150" role="img" aria-labelledby="title desc">
-<title id="title">{label}: {percent}%</title><desc id="desc">{caption}</desc>
-<rect x="1" y="1" width="248" height="148" rx="12" fill="#F2F7FC" stroke="#C9D9E9"/>
-
-<text x="125" y="25" text-anchor="middle" fill="#526C82" font-family="Arial, sans-serif" font-size="9" letter-spacing="1.2">PROJETO PRIVADO</text>
-<text x="125" y="52" text-anchor="middle" fill="#203C55" font-family="Arial, sans-serif" font-size="{font_size}" font-weight="700">{label}</text>
-<text x="125" y="102" text-anchor="middle" fill="#526C82" font-family="Arial, sans-serif" font-size="11">{caption}</text>
-<text x="125" y="81" text-anchor="middle" fill="#315F87" font-family="Arial, sans-serif" font-size="22" font-weight="700">{percent}%</text>
-<rect x="18" y="120" width="214" height="8" rx="4" fill="#DCE7F1"/>
-<rect x="18" y="120" width="{214*percent/100:g}" height="8" rx="4" fill="#547FA5"/>
-</svg>'''
-        (output / filename).write_text(svg, encoding="utf-8")
-        if card_count and card_count % 3 == 0:
-            lines.append('</p>\n<p align="center">')
-        card_count += 1
-        lines.append(f'<img src="assets/projects/{filename}" width="250" alt="{label}: {percent}% — {caption}" />')
-    lines.append('</p>')
+        size=min(15,350/max(len(name),1))
+        body=text('PROJETO PRIVADO',125,25,9,CYAN,mono=True,spacing=1)
+        body+=text(name,125,51,size,weight='700')
+        body+=text(str(percent)+'%',125,84,29,CYAN,weight='700',mono=True)
+        body+=text(status,125,105,11,MUTED)
+        body+=f'<rect x="18" y="122" width="214" height="7" fill="{SURFACE}"/><rect x="18" y="122" width="{214*percent/100:g}" height="7" fill="{CYAN}"/>'
+        (output/filename).write_text(card(name+': '+str(percent)+'% — '+status,body,height=150),encoding='utf-8')
+        cards.append(img('assets/projects/'+filename,name+': '+str(percent)+'% — '+status))
+    lines=[row(cards[i:i+3]) for i in range(0,len(cards),3)]
     if unmeasured:
-        lines += ['', '<h4 align="center">Outros projetos · sem estimativa</h4>', '', '<p align="center">' + ' · '.join('<code>' + escape(n) + '</code>' for n in unmeasured) + '</p>']
-    for old in output.glob('progress-*.svg'):
-        if old.name not in used:
-            old.unlink()
-    return "\n".join(lines)
+        lines+=['<h4 align="center">Outros projetos · sem estimativa</h4>']
+        catalog=[]
+        for i in range(0,len(unmeasured),4):
+            group=unmeasured[i:i+4]
+            filename=f'catalog-{i//4+1}.svg'
+            used.add(filename)
+            body=text('EM MEU LABORATÓRIO',125,28,9,PINK,mono=True,spacing=0.8)
+            body+='<path d="M22 41h206" stroke="#2A3D56"/>'
+            for j,name in enumerate(group):
+                body+=text(name,125,67+j*27,min(13,350/max(len(name),1)))
+            (output/filename).write_text(card('Projetos sem estimativa: '+', '.join(group),body,height=170,accent=PINK),encoding='utf-8')
+            catalog.append(img('assets/projects/'+filename,'Sem estimativa: '+', '.join(group)))
+        lines += [row(catalog[i:i+3]) for i in range(0,len(catalog),3)]
+    for pattern in ('progress-*.svg','catalog-*.svg'):
+        for old in output.glob(pattern):
+            if old.name not in used:
+                old.unlink()
+    return '\n\n'.join(lines)

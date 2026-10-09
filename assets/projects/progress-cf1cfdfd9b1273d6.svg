@@ -1,11 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="250" height="150" viewBox="0 0 250 150" role="img" aria-labelledby="title desc">
-<title id="title">conciliacao-v2: 67%</title><desc id="desc">Issues concluídas: 2/3</desc>
-<rect x="1" y="1" width="248" height="148" rx="12" fill="#F2F7FC" stroke="#C9D9E9"/>
-
-<text x="125" y="25" text-anchor="middle" fill="#526C82" font-family="Arial, sans-serif" font-size="9" letter-spacing="1.2">PROJETO PRIVADO</text>
-<text x="125" y="52" text-anchor="middle" fill="#203C55" font-family="Arial, sans-serif" font-size="16" font-weight="700">conciliacao-v2</text>
-<text x="125" y="102" text-anchor="middle" fill="#526C82" font-family="Arial, sans-serif" font-size="11">Issues concluídas: 2/3</text>
-<text x="125" y="81" text-anchor="middle" fill="#315F87" font-family="Arial, sans-serif" font-size="22" font-weight="700">67%</text>
-<rect x="18" y="120" width="214" height="8" rx="4" fill="#DCE7F1"/>
-<rect x="18" y="120" width="143.38" height="8" rx="4" fill="#547FA5"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="250" height="150" viewBox="0 0 250 150" role="img" aria-labelledby="title">
+<title id="title">conciliacao-v2: 67% — Issues concluídas: 2/3</title>
+<path d="M13 1H225L249 25V137L237 149H25L1 125V13Z" fill="#090D18" stroke="#2A3D56"/>
+<path d="M14 1H72M249 85V136L236 149H195" fill="none" stroke="#59F3F2" stroke-width="2"/>
+<path d="M208 11h14m-10 5h14" stroke="#59F3F2" opacity="0.65"/>
+<text x="125" y="25" text-anchor="middle" fill="#59F3F2" font-family="DejaVu Sans Mono, monospace" font-size="9" font-weight="400" letter-spacing="1">PROJETO PRIVADO</text><text x="125" y="51" text-anchor="middle" fill="#EAF4FF" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" font-weight="700">conciliacao-v2</text><text x="125" y="84" text-anchor="middle" fill="#59F3F2" font-family="DejaVu Sans Mono, monospace" font-size="29" font-weight="700">67%</text><text x="125" y="105" text-anchor="middle" fill="#A9BCD3" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" font-weight="400">Issues concluídas: 2/3</text><rect x="18" y="122" width="214" height="7" fill="#101828"/><rect x="18" y="122" width="143.38" height="7" fill="#59F3F2"/>
 </svg>
