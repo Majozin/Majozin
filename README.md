@@ -15,15 +15,14 @@
 <!-- PRIVATE_PROJECTS_START -->
 <p align="center">
 <img src="assets/projects/progress-a286d0cef32f678e.svg" width="250" alt="Padronizator-vNext: 69% — Issues concluídas: 36/52" />
-<img src="assets/projects/progress-cf1cfdfd9b1273d6.svg" width="250" alt="conciliacao-v2: 67% — Issues concluídas: 2/3" />
 </p>
 
 <h4 align="center">Outros projetos · sem estimativa</h4>
 
 <p align="center">
-<img src="assets/projects/catalog-1.svg" width="250" alt="Sem estimativa: Component-Library, downloader_sefaz_pb, MajoHub, majoservers_status" />
-<img src="assets/projects/catalog-2.svg" width="250" alt="Sem estimativa: Padronizator-API, Playwitch, portfolio_template, primo-majo-dashboard" />
-<img src="assets/projects/catalog-3.svg" width="250" alt="Sem estimativa: RealmOps, UniSefazPB, zimaos" />
+<img src="assets/projects/catalog-1.svg" width="250" alt="Sem estimativa: Component-Library, downloader_sefaz_pb, majoservers_status, Padronizator-API" />
+<img src="assets/projects/catalog-2.svg" width="250" alt="Sem estimativa: Playwitch, portfolio_template, RealmOps, UniSefazPB" />
+<img src="assets/projects/catalog-3.svg" width="250" alt="Sem estimativa: zimaos" />
 </p>
 <!-- PRIVATE_PROJECTS_END -->
 
