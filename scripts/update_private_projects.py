@@ -17,6 +17,7 @@ END = "<!-- PRIVATE_PROJECTS_END -->"
 TOKEN = os.getenv("PROFILE_PROJECTS_TOKEN", "").strip()
 CONFIG = json.loads(Path("profile-projects.json").read_text(encoding="utf-8"))
 OVERRIDES = CONFIG.get("overrides", {})
+STATUS_PROJECTS = set(CONFIG.get("status_projects", []))
 
 def request(path):
     req = urllib.request.Request(
@@ -116,7 +117,7 @@ def main():
     for repo in repos:
         name = repo["name"]
         override = OVERRIDES.get(name, {})
-        status_doc = project_status(name)
+        status_doc = project_status(name) if name in STATUS_PROJECTS else None
         if status_doc is not None:
             if not status_doc["visible"]:
                 continue
