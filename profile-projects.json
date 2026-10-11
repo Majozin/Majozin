@@ -1,3 +1,6 @@
 {
-  "overrides": {}
+  "overrides": {},
+  "status_projects": [
+    "mod-control-center"
+  ]
 }
