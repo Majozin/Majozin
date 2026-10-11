@@ -56,7 +56,10 @@ def project_status_mirror(repo_name):
         raise RuntimeError("Espelho de status nao configurado: " + repo_name)
     endpoint = ("/repos/" + OWNER + "/" + urllib.parse.quote(repo_name)
                 + "/issues/" + str(issue_number))
-    issue = request(endpoint)
+    try:
+        issue = request(endpoint)
+    except (urllib.error.HTTPError, urllib.error.URLError) as exc:
+        raise RuntimeError("Falha ao ler espelho de status: " + repo_name) from exc
     if (not isinstance(issue, dict) or "pull_request" in issue
             or issue.get("state") != "open"):
         raise RuntimeError("Issue de status invalida: " + repo_name)
