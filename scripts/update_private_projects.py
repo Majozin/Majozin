@@ -18,6 +18,7 @@ TOKEN = os.getenv("PROFILE_PROJECTS_TOKEN", "").strip()
 CONFIG = json.loads(Path("profile-projects.json").read_text(encoding="utf-8"))
 OVERRIDES = CONFIG.get("overrides", {})
 STATUS_PROJECTS = set(CONFIG.get("status_projects", []))
+STATUS_ISSUE_MIRRORS = CONFIG.get("status_issue_mirrors", {})
 
 def request(path):
     req = urllib.request.Request(
@@ -48,6 +49,46 @@ STATUS_SCHEMA = "project-status/v1"
 STATUS_FILE = "PROJECT_STATUS.json"
 
 
+def project_status_mirror(repo_name):
+    """Use a project-managed, public-fields-only issue when Contents:read is unavailable."""
+    issue_number = STATUS_ISSUE_MIRRORS.get(repo_name)
+    if type(issue_number) is not int or issue_number < 1:
+        raise RuntimeError("Espelho de status nao configurado: " + repo_name)
+    endpoint = ("/repos/" + OWNER + "/" + urllib.parse.quote(repo_name)
+                + "/issues/" + str(issue_number))
+    issue = request(endpoint)
+    if (not isinstance(issue, dict) or "pull_request" in issue
+            or issue.get("state") != "open"):
+        raise RuntimeError("Issue de status invalida: " + repo_name)
+    body = issue.get("body")
+    begin, end = "<!-- PROJECT_STATUS_PUBLIC_V1_BEGIN -->", "<!-- PROJECT_STATUS_PUBLIC_V1_END -->"
+    if (not isinstance(body, str) or body.count(begin) != 1 or
+            body.count(end) != 1 or len(body) > 20000):
+        raise RuntimeError("Marcadores do espelho de status invalidos: " + repo_name)
+    raw = body.split(begin, 1)[1].split(end, 1)[0].strip()
+    try:
+        data = json.loads(raw)
+    except ValueError as exc:
+        raise RuntimeError("JSON do espelho invalido: " + repo_name) from exc
+    if (not isinstance(data, dict) or
+            data.get("schema_version") != "project-status-public/v1" or
+            data.get("repository") != OWNER + "/" + repo_name):
+        raise RuntimeError("Identidade do espelho divergente: " + repo_name)
+    percent = data.get("percent")
+    estimated = data.get("estimated")
+    if (type(percent) is not int or not 0 <= percent <= 100 or
+            type(estimated) is not bool or
+            (not estimated and percent != 0)):
+        raise RuntimeError("Percentual do espelho invalido: " + repo_name)
+    name = data.get("public_name")
+    status = data.get("public_status")
+    if (not isinstance(name, str) or not 1 <= len(name) <= 80
+            or not isinstance(status, str) or not 1 <= len(status) <= 90
+            or any(ord(c) < 32 or ord(c) == 127 for c in name + status)):
+        raise RuntimeError("Campos publicos do espelho invalidos: " + repo_name)
+    return {"name": name, "percent": percent, "status": status, "visible": True}
+
+
 def project_status(repo_name):
     """Prefer the project-owned status contract over issue-close percentages.
 
@@ -58,8 +99,12 @@ def project_status(repo_name):
     try:
         payload = request(path)
     except urllib.error.HTTPError as exc:
-        if exc.code == 404:
+        if exc.code == 403 and repo_name in STATUS_ISSUE_MIRRORS:
+            return project_status_mirror(repo_name)
+        if exc.code == 404 and repo_name not in STATUS_ISSUE_MIRRORS:
             return None
+        if exc.code == 404:
+            return project_status_mirror(repo_name)
         raise RuntimeError("Falha ao ler status do projeto " + repo_name) from exc
     if (not isinstance(payload, dict) or payload.get("type") != "file"
             or payload.get("encoding") != "base64"):
