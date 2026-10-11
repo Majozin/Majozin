@@ -15,7 +15,7 @@
 <!-- PRIVATE_PROJECTS_START -->
 <p align="center">
 <img src="assets/projects/progress-a286d0cef32f678e.svg" width="250" alt="Padronizator-vNext: 69% — Issues concluídas: 36/52" />
-<img src="assets/projects/progress-f74b2dfc33675e4f.svg" width="250" alt="valheim-mod-control-center: 0% — Issues concluídas: 0/4" />
+<img src="assets/projects/progress-750a80c23982f177.svg" width="250" alt="Mod Control Center: 0% — Aguardando testes reais" />
 </p>
 
 <h4 align="center">Outros projetos · sem estimativa</h4>
