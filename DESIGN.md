@@ -8,6 +8,6 @@ Cabeçalho 780 × 190; apresentação 520 × 181; métricas 250 × 150; tecnolog
 
 Retrato original preservado em assets/avatar.png. Nome público: Majozin. Apresentação preserva o texto escolhido pelo usuário. Nenhum nome completo no perfil.
 
-Dados: somente nomes e indicadores agregados já autorizados. Percentuais são de issues concluídas (PRs excluídos), não conclusão de produto. Sem estimativa: cartões de catálogo sem barras. Falha na coleta preserva o painel.
+Dados: somente nomes e indicadores agregados autorizados. **Prioridade para `PROJECT_STATUS.json` validado**, com percentual de entregas integradas/homologadas; se `estimated=false`, mostrar **0%** e situação pública. Para projetos legados não migrados, o cálculo de issues concluídas continua sendo uma métrica provisória, **não conclusão do produto**; sem métrica de issues, o catálogo legado permanece sem barra. Não publicar campos privados. Falha de coleta/schemas preserva o painel. O espelho gerenciado por issue com permissão mínima está descrito em `docs/PROJECT_STATUS_INTEGRATION.md`.
 
 Geradores: python3 scripts/render_profile.py para ativos estáticos; scripts/render_projects.py para projetos; scripts/update_private_projects.py para coleta. O workflow existente versiona README e assets/projects juntos. Ao alterar a identidade, regenerar ambos os conjuntos de ativos. Não incluir dependências externas de imagens, JavaScript, animações, títulos de issues nem detalhes internos.
