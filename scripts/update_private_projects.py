@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Atualiza somente o bloco público de projetos privados do README."""
 from render_projects import render_projects
+import base64
+import binascii
 import json
 import os
 import sys
@@ -41,6 +43,61 @@ def pages(path):
             break
         page += 1
 
+STATUS_SCHEMA = "project-status/v1"
+STATUS_FILE = "PROJECT_STATUS.json"
+
+
+def project_status(repo_name):
+    """Prefer the project-owned status contract over issue-close percentages.
+
+    Only the explicit public fields are exported; source may be a private repo.
+    404 is a legacy repository without a contract. Other API failures fail closed.
+    """
+    path = "/repos/" + OWNER + "/" + urllib.parse.quote(repo_name) + "/contents/" + STATUS_FILE
+    try:
+        payload = request(path)
+    except urllib.error.HTTPError as exc:
+        if exc.code == 404:
+            return None
+        raise RuntimeError("Falha ao ler status do projeto " + repo_name) from exc
+    if (not isinstance(payload, dict) or payload.get("type") != "file"
+            or payload.get("encoding") != "base64"):
+        raise RuntimeError("Status nao e um JSON regular: " + repo_name)
+    try:
+        raw = base64.b64decode(payload["content"], validate=False)
+        if len(raw) > 65536:
+            raise ValueError("Status excede limite de 64 KiB")
+        data = json.loads(raw.decode("utf-8"))
+    except (ValueError, KeyError, UnicodeError, binascii.Error) as exc:
+        raise RuntimeError("Status invalido para " + repo_name) from exc
+    if (not isinstance(data, dict) or data.get("schema_version") != STATUS_SCHEMA
+            or data.get("repository") != OWNER + "/" + repo_name):
+        raise RuntimeError("Schema/identidade de status incorreto: " + repo_name)
+    p = data.get("progress")
+    pub = data.get("profile")
+    if not isinstance(p, dict) or not isinstance(pub, dict):
+        raise RuntimeError("Campos de status obrigatorios ausentes: " + repo_name)
+    percent = p.get("percent")
+    estimated = p.get("estimated")
+    if (type(percent) is not int or not 0 <= percent <= 100
+            or type(estimated) is not bool
+            or (not estimated and percent != 0)):
+        raise RuntimeError("Progresso nao auditavel: " + repo_name)
+    if p.get("basis") != "homologated_deliverables":
+        raise RuntimeError("Origem do percentual nao homologada: " + repo_name)
+    visible = pub.get("visible", True)
+    if type(visible) is not bool:
+        raise RuntimeError("Visibilidade invalida: " + repo_name)
+    def safe_public(value, limit):
+        return (isinstance(value, str) and 1 <= len(value) <= limit
+                and all(ord(c) >= 32 and ord(c) != 127 for c in value))
+    name = pub.get("public_name")
+    status = pub.get("public_status")
+    if not safe_public(name, 80) or not safe_public(status, 90):
+        raise RuntimeError("Metadados publicos invalidos: " + repo_name)
+    return {"name": name, "percent": percent, "status": status, "visible": visible}
+
+
 def main():
     if not TOKEN:
         print("PROFILE_PROJECTS_TOKEN não configurado; README preservado.")
@@ -59,6 +116,18 @@ def main():
     for repo in repos:
         name = repo["name"]
         override = OVERRIDES.get(name, {})
+        status_doc = project_status(name)
+        if status_doc is not None:
+            if not status_doc["visible"]:
+                continue
+            # A validated project-owned status is canonical. Never override it
+            # with an issue count or a separate manual estimate.
+            records.append({
+                "name": status_doc["name"],
+                "percent": status_doc["percent"],
+                "status": status_doc["status"],
+            })
+            continue
         label = override.get("public_name", name)
         if override.get("hidden", False):
             continue
