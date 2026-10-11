@@ -1,6 +1,11 @@
 name: Atualizar progresso dos projetos privados
 
 on:
+  push:
+    paths:
+      - 'scripts/update_private_projects.py'
+      - 'profile-projects.json'
+      - '.github/workflows/update-private-projects.yml'
   workflow_dispatch:
   schedule:
     - cron: '17 9 * * *'
