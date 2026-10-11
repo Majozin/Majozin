@@ -89,7 +89,10 @@ def project_status_mirror(repo_name):
             or not isinstance(status, str) or not 1 <= len(status) <= 90
             or any(ord(c) < 32 or ord(c) == 127 for c in name + status)):
         raise RuntimeError("Campos publicos do espelho invalidos: " + repo_name)
-    return {"name": name, "percent": percent, "status": status, "visible": True}
+    visible = data.get("visible", True)
+    if type(visible) is not bool:
+        raise RuntimeError("Visibilidade invalida no espelho: " + repo_name)
+    return {"name": name, "percent": percent, "status": status, "visible": visible}
 
 
 def project_status(repo_name):
