@@ -80,6 +80,34 @@ class ProjectStatusTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "Falha ao ler"):
                 project.project_status("mod-control-center")
 
+    def test_restricted_contents_uses_project_issue_mirror(self):
+        data = {
+            "schema_version": "project-status-public/v1",
+            "repository": "Majozin/mod-control-center",
+            "public_name": "Mod Control Center",
+            "public_status": "Aguardando testes reais",
+            "percent": 0,
+            "estimated": False,
+        }
+        body = ("<!-- PROJECT_STATUS_PUBLIC_V1_BEGIN -->\n" +
+                json.dumps(data) +
+                "\n<!-- PROJECT_STATUS_PUBLIC_V1_END -->")
+        forbidden = HTTPError("https://api.github.com", 403, "Forbidden", {}, None)
+        with patch.object(project, "request",
+                          side_effect=[forbidden, {"state": "open", "body": body}]) as mock:
+            got = project.project_status("mod-control-center")
+        self.assertEqual(got["name"], "Mod Control Center")
+        self.assertEqual(got["percent"], 0)
+        self.assertEqual(mock.call_count, 2)
+        self.assertIn("/issues/8", mock.call_args.args[0])
+
+    def test_malformed_issue_mirror_must_not_publish(self):
+        forbidden = HTTPError("https://api.github.com", 403, "Forbidden", {}, None)
+        with patch.object(project, "request",
+                          side_effect=[forbidden, {"state": "open", "body": "tampered"}]):
+            with self.assertRaisesRegex(RuntimeError, "Marcadores"):
+                project.project_status("mod-control-center")
+
     def test_invalid_binary_payload_and_private_field_protection(self):
         with patch.object(project, "request", return_value={
             "type":"file", "encoding":"base64", "content":"not valid data"
