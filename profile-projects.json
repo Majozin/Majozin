@@ -2,5 +2,8 @@
   "overrides": {},
   "status_projects": [
     "mod-control-center"
-  ]
+  ],
+  "status_issue_mirrors": {
+    "mod-control-center": 8
+  }
 }
