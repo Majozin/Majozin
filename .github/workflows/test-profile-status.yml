@@ -1,0 +1,30 @@
+name: Testar contrato de status do perfil
+
+on:
+  push:
+    paths:
+      - 'scripts/update_private_projects.py'
+      - 'tests/test_project_status.py'
+      - '.github/workflows/test-profile-status.yml'
+  pull_request:
+    paths:
+      - 'scripts/update_private_projects.py'
+      - 'tests/test_project_status.py'
+      - '.github/workflows/test-profile-status.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-status:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compilar scripts e testes
+        run: python -m compileall -q scripts tests
+      - name: Validar schema, zero sem estimativa e nao vazamento
+        run: python -m unittest discover -s tests -v
