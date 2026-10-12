@@ -15,14 +15,15 @@
 <!-- PRIVATE_PROJECTS_START -->
 <p align="center">
 <img src="assets/projects/progress-a286d0cef32f678e.svg" width="250" alt="Padronizator-vNext: 69% — Issues concluídas: 36/52" />
-<img src="assets/projects/progress-750a80c23982f177.svg" width="250" alt="Mod Control Center: 0% — Aguardando testes reais" />
+<img src="assets/projects/progress-750a80c23982f177.svg" width="250" alt="Mod Control Center: 0% — Descontinuado" />
 </p>
 
 <h4 align="center">Outros projetos · sem estimativa</h4>
 
 <p align="center">
 <img src="assets/projects/catalog-1.svg" width="250" alt="Sem estimativa: Component-Library, downloader_sefaz_pb, majoservers_status, Playwitch" />
-<img src="assets/projects/catalog-2.svg" width="250" alt="Sem estimativa: portfolio_template, RealmOps, UniSefazPB, zimaos" />
+<img src="assets/projects/catalog-2.svg" width="250" alt="Sem estimativa: portfolio_template, RealmOps, RtDWildLandsLauncher, UniSefazPB" />
+<img src="assets/projects/catalog-3.svg" width="250" alt="Sem estimativa: zimaos" />
 </p>
 <!-- PRIVATE_PROJECTS_END -->
 
