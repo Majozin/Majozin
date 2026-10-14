@@ -21,9 +21,9 @@
 <h4 align="center">Outros projetos · sem estimativa</h4>
 
 <p align="center">
-<img src="assets/projects/catalog-1.svg" width="250" alt="Sem estimativa: Component-Library, downloader_sefaz_pb, majoservers_status, Playwitch" />
-<img src="assets/projects/catalog-2.svg" width="250" alt="Sem estimativa: portfolio_template, RealmOps, RtDWildLandsLauncher, UniSefazPB" />
-<img src="assets/projects/catalog-3.svg" width="250" alt="Sem estimativa: zimaos" />
+<img src="assets/projects/catalog-1.svg" width="250" alt="Sem estimativa: Component-Library, deep-north-launcher, downloader_sefaz_pb, majoservers_status" />
+<img src="assets/projects/catalog-2.svg" width="250" alt="Sem estimativa: Playwitch, portfolio_template, RealmOps, RtDWildLandsLauncher" />
+<img src="assets/projects/catalog-3.svg" width="250" alt="Sem estimativa: UniSefazPB, zimaos" />
 </p>
 <!-- PRIVATE_PROJECTS_END -->
 
