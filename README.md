@@ -23,7 +23,7 @@
 <p align="center">
 <img src="assets/projects/catalog-1.svg" width="250" alt="Sem estimativa: Component-Library, deep-north-launcher, downloader_sefaz_pb, majoservers_status" />
 <img src="assets/projects/catalog-2.svg" width="250" alt="Sem estimativa: Playwitch, portfolio_template, RealmOps, RtDWildLandsLauncher" />
-<img src="assets/projects/catalog-3.svg" width="250" alt="Sem estimativa: UniSefazPB, zimaos" />
+<img src="assets/projects/catalog-3.svg" width="250" alt="Sem estimativa: UniSefazPB, vNext.2.0, zimaos" />
 </p>
 <!-- PRIVATE_PROJECTS_END -->
 
