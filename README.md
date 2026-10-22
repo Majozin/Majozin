@@ -14,7 +14,7 @@
 
 <!-- PRIVATE_PROJECTS_START -->
 <p align="center">
-<img src="assets/projects/progress-a286d0cef32f678e.svg" width="250" alt="Padronizator-vNext: 69% — Issues concluídas: 36/52" />
+<img src="assets/projects/progress-a286d0cef32f678e.svg" width="250" alt="Padronizator-vNext: 52% — Issues concluídas: 17/33" />
 <img src="assets/projects/progress-750a80c23982f177.svg" width="250" alt="Mod Control Center: 0% — Descontinuado" />
 </p>
 
@@ -23,7 +23,7 @@
 <p align="center">
 <img src="assets/projects/catalog-1.svg" width="250" alt="Sem estimativa: Component-Library, deep-north-launcher, downloader_sefaz_pb, Majo-Valheim-Mod-Manager" />
 <img src="assets/projects/catalog-2.svg" width="250" alt="Sem estimativa: majoservers_status, Playwitch, portfolio_template, RealmOps" />
-<img src="assets/projects/catalog-3.svg" width="250" alt="Sem estimativa: RtDWildLandsLauncher, UniSefazPB, vNext.2.0, zimaos" />
+<img src="assets/projects/catalog-3.svg" width="250" alt="Sem estimativa: RtDWildLandsLauncher, UniSefazPB, zimaos" />
 </p>
 <!-- PRIVATE_PROJECTS_END -->
 
