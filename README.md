@@ -14,7 +14,7 @@
 
 <!-- PRIVATE_PROJECTS_START -->
 <p align="center">
-<img src="assets/projects/progress-a286d0cef32f678e.svg" width="250" alt="Padronizator-vNext: 52% — Issues concluídas: 17/33" />
+<img src="assets/projects/progress-a286d0cef32f678e.svg" width="250" alt="Padronizator-vNext: 69% — Issues concluídas: 36/52" />
 <img src="assets/projects/progress-750a80c23982f177.svg" width="250" alt="Mod Control Center: 0% — Descontinuado" />
 </p>
 
