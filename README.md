@@ -23,7 +23,7 @@
 <p align="center">
 <img src="assets/projects/catalog-1.svg" width="250" alt="Sem estimativa: Component-Library, deep-north-launcher, downloader_sefaz_pb, Majo-Valheim-Mod-Manager" />
 <img src="assets/projects/catalog-2.svg" width="250" alt="Sem estimativa: majoservers_status, Playwitch, portfolio_template, RealmOps" />
-<img src="assets/projects/catalog-3.svg" width="250" alt="Sem estimativa: RtDWildLandsLauncher, UniSefazPB, zimaos" />
+<img src="assets/projects/catalog-3.svg" width="250" alt="Sem estimativa: RtDWildLandsLauncher, zimaos" />
 </p>
 <!-- PRIVATE_PROJECTS_END -->
 
